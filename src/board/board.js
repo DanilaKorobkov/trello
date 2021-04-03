@@ -2,37 +2,39 @@
 import React, {Component} from "react";
 import Stage from "./stage";
 
+function groupCardsByStage(stages, cards) {
+  let grouped = new Map();
+  for (let stageName of stages.values()) {
+    grouped.set(stageName, [])
+  }
+  for (let card of cards.values()) {
+    grouped.get(card.stage).push(card)
+  }
+  return grouped;
+}
+
 class Board extends Component {
 
   render() {
-    const data = this.props.content;
-    const groupedCards = this._groupCardsByStage(data);
+    const stages = this.props.content.stages;
+    const cards = this.props.content.cards;
 
-    const stages = []
-    for (let stageName of data.stages.values()) {
+    const groupedCards = groupCardsByStage(stages, cards);
+
+    let filledStages = []
+    for (let stageName of stages.values()) {
       let component = <Stage
         title={stageName}
         cards={groupedCards.get(stageName)}
       />
-      stages.push(component)
+      filledStages.push(component)
     }
 
     return (
       <div style={{display: 'flex', flexDirection: 'row'}}>
-        {stages}
+        {filledStages}
       </div>
     )
-  }
-
-  _groupCardsByStage(data) {
-    const grouped = new Map();
-    for (let stageName of data.stages.values()) {
-      grouped.set(stageName, [])
-    }
-    for (let card of data.cards.values()) {
-      grouped.get(card.stage).push(card)
-    }
-    return grouped;
   }
 }
 

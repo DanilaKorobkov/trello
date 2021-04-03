@@ -1,9 +1,13 @@
 import Stage from './board/stage'
+import StubClient from "./client/stub_client";
 
 
-function App(props) {
+function App() {
+  const client = new StubClient()
+  const board = client.getBoard()
+
   return (
-      <Stage cards={props.sprint.cards}/>
+      <Stage cards={board.cards}/>
   );
 }
 

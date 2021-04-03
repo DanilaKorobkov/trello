@@ -1,4 +1,4 @@
-import Stage from './sprint/stage'
+import Stage from './board/stage'
 
 
 function App(props) {

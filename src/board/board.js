@@ -4,22 +4,11 @@ import Stage from "./stage";
 
 class Board extends Component {
 
-  initGroupedCards(data) {
-    let groupedCards = new Map();
-    for (let stageName of data.stages.values()) {
-      groupedCards.set(stageName, [])
-    }
-    for (let card of data.cards.values()) {
-      groupedCards.get(card.stage).push(card)
-    }
-    return groupedCards;
-  }
-
   render() {
-    let data = this.props.data;
-    const groupedCards = this.initGroupedCards(data);
+    const data = this.props.content;
+    const groupedCards = this._groupCardsByStage(data);
 
-    let stages = []
+    const stages = []
     for (let stageName of data.stages.values()) {
       let component = <Stage
         title={stageName}
@@ -33,6 +22,17 @@ class Board extends Component {
         {stages}
       </div>
     )
+  }
+
+  _groupCardsByStage(data) {
+    const grouped = new Map();
+    for (let stageName of data.stages.values()) {
+      grouped.set(stageName, [])
+    }
+    for (let card of data.cards.values()) {
+      grouped.get(card.stage).push(card)
+    }
+    return grouped;
   }
 }
 

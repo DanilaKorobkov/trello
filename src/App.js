@@ -8,7 +8,7 @@ function App() {
   const board = client.getBoard()
 
   return (
-      <Board data={board}/>
+      <Board content={board}/>
   );
 }
 

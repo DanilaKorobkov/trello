@@ -1,0 +1,22 @@
+<<<<<<< Updated upstream
+import Stage from './board/stage'
+import StubClient from "./client/stub_client";
+=======
+import Board from "./board/board";
+>>>>>>> Stashed changes
+
+
+function App() {
+  const client = new StubClient()
+  const board = client.getBoard()
+
+  return (
+<<<<<<< Updated upstream
+      <Stage cards={board.cards}/>
+=======
+      <Board stages={props.sprint.stages}/>
+>>>>>>> Stashed changes
+  );
+}
+
+export default App;

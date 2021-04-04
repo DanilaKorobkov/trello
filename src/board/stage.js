@@ -1,8 +1,8 @@
 import Card from "./card";
-import React from "react";
+import React, {Component} from "react";
 
 
-class Stage extends React.Component {
+class Stage extends Component {
 
     render() {
         let cards = []
@@ -15,6 +15,7 @@ class Stage extends React.Component {
         return (
             <div>
                 {cards}
+                <hr></hr>
             </div>
         );
     }

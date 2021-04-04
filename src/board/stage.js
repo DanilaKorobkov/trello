@@ -1,6 +1,6 @@
 import Card from "./card";
 import React, {Component} from "react";
-
+import styles from "../styles";
 
 class Stage extends Component {
 
@@ -13,12 +13,13 @@ class Stage extends Component {
         }
 
         return (
-            <div>
+            <div style={styles.list}>
                 {cards}
-                <hr></hr>
             </div>
         );
     }
 }
 
+
 export default Stage;
+

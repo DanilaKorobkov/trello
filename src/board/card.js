@@ -1,16 +1,17 @@
 import React, {Component} from "react";
-
+import styles from "../styles";
 
 class Card extends Component {
 
     render() {
         return (
-            <div>
+            <div style={styles.card}>
                 {this.props.id}
-                {this.props.title}
             </div>
         );
     }
 }
+
+
 
 export default Card;

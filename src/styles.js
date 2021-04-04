@@ -2,14 +2,14 @@ const styles = {
   card: {
     backgroundColor: '#fff',
     borderRadius: 3,
-    width: 290,
-    margin: '5px'
+    width: 240,
+    margin: '30px',
   },
   list: {
     backgroundColor: '#ccc',
     borderRadius: 3,
     width: 300,
-    margin: '5px'
+    margin: '5px',
   }
 }
 

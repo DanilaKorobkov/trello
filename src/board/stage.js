@@ -15,6 +15,7 @@ class Stage extends Component {
         return (
             <div>
                 {cards}
+                <hr></hr>
             </div>
         );
     }

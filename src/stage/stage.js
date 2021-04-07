@@ -1,4 +1,4 @@
-import Card from "./card";
+import Card from "../card/card";
 import React, {Component} from "react";
 
 
@@ -13,11 +13,19 @@ class Stage extends Component {
         }
 
         return (
-            <div>
+            <div style={styles.container}>
                 {cards}
-                <hr></hr>
             </div>
         );
+    }
+}
+
+const styles = {
+    container: {
+        backgroundColor: '#ccc',
+        borderRadius: 3,
+        width: 300,
+        margin: 10,
     }
 }
 

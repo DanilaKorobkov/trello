@@ -18,10 +18,12 @@
 .env.test.local
 .env.production.local
 
-npm-debug.log*
+npm-debug.log*w
 yarn-debug.log*
 yarn-error.log*
 
 # WebStorm
 .idea
-.orig
+
+# Merge
+*.orig

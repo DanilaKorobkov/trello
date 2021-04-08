@@ -1,6 +1,5 @@
-import StubClient from "./client/stub_client";
-import Board from "./board/board";
-import React from "react";
+import StubClient from "../client/stub_client";
+import Board from "./board";
 
 
 function App() {

@@ -1,17 +1,6 @@
-
 import React, {Component} from "react";
 import Stage from "./stage";
 
-function groupCardsByStage(stages, cards) {
-  let grouped = new Map();
-  for (let stageName of stages.values()) {
-    grouped.set(stageName, [])
-  }
-  for (let card of cards.values()) {
-    grouped.get(card.stage).push(card)
-  }
-  return grouped;
-}
 
 class Board extends Component {
 
@@ -36,6 +25,17 @@ class Board extends Component {
       </div>
     )
   }
+}
+
+function groupCardsByStage(stages, cards) {
+  let grouped = new Map();
+  for (let stageName of stages.values()) {
+    grouped.set(stageName, [])
+  }
+  for (let card of cards.values()) {
+    grouped.get(card.stage).push(card)
+  }
+  return grouped;
 }
 
 export default Board;

@@ -13,12 +13,18 @@ class Stage extends Component {
         }
 
         return (
-            <div>
+            <div style={style}>
                 {cards}
-                <hr></hr>
             </div>
         );
     }
+}
+
+const style = {
+        backgroundColor: '#ccc',
+        borderRadius: 3,
+        width: 300,
+        margin: 10
 }
 
 export default Stage;

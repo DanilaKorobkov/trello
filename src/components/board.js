@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import Stage from "../stage/stage";
+import Stage from "./stage";
 
 
 class Board extends Component {

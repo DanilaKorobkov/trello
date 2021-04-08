@@ -10,19 +10,17 @@ class Card extends Component {
                 label={this.props.title}
                 multiline
                 rowsMax={4}
-                style={styles.card}
+                style={style}
               />
         );
     }
 }
 
-const styles = {
-    card: {
+const style = {
         backgroundColor: '#fff',
         borderRadius: 3,
         width: 280,
-        margin: 10,
-    }
+        margin: 10
 }
 
 export default Card;

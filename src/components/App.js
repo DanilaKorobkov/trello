@@ -1,6 +1,5 @@
-import Stage from './stage/stage'
-import StubClient from "./client/stub_client";
-import Board from "./board/board";
+import StubClient from "../client/stub_client";
+import Board from "./board";
 
 
 function App() {

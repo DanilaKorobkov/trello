@@ -1,5 +1,6 @@
 import StubClient from "../client/stub_client";
 import Board from "./board";
+import React from "react";
 
 
 function App() {
@@ -7,7 +8,7 @@ function App() {
   const board = client.getBoard()
 
   return (
-      <Board content={board}/>
+      <Board content={board} client={client}/>
   );
 }
 

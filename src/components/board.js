@@ -15,6 +15,7 @@ class Board extends Component {
       let component = <Stage
         title={stageName}
         cards={groupedCards.get(stageName)}
+        client={this.props.client}
       />
       filledStages.push(component)
     }

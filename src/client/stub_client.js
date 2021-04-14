@@ -1,4 +1,5 @@
 import board_data from '../example_data/board.json'
+import { v4 as uuid4 } from 'uuid';
 
 
 class StubClient {
@@ -8,7 +9,7 @@ class StubClient {
     }
 
     addNewCard(stage) {
-        const newId = Math.floor(Math.random() * 1000); // TODO: uuid4
+        const newId = uuid4();
         return {
             "id": newId,
             "stage": stage,

@@ -5,15 +5,15 @@ import Button from '@material-ui/core/Button';
 
 class Stage extends Component {
 
-  state = {
-    cards: []
+  constructor(props) {
+    super(props);
+    this.state = {cards: []};
   }
 
   componentDidMount() {
     for (const card of this.props.cards) {
-      let component = <Card id={card.id} title={card.title}/>
       let cards = this.state.cards
-      cards.push(component)
+      cards.push(card)
       this.setState({cards: cards})
     }
   }
@@ -21,17 +21,23 @@ class Stage extends Component {
 
   createCard = (stage) => {
     let newCard = this.props.client.addNewCard(stage)
-    let newComponent = <Card id={newCard.id} title={newCard.title}/>
     let newCards = this.state.cards
-    newCards.push(newComponent)
+    newCards.push(newCard)
     this.setState({cards: newCards})
 }
 
     render() {
+
+      let cards = []
+
+      for (const card of this.state.cards) {
+        let component = <Card id={card.id} title={card.title}/>
+        cards.push(component)
+      }
         return (
             <div style={style}>
             <div>
-                {this.state.cards}
+                {cards}
             </div>
               <Button
                 onClick={

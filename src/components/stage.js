@@ -7,15 +7,19 @@ class Stage extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {cards: []};
-  }
+    this.state = {
+      cards: []
+    };
 
-  componentDidMount() {
     for (const card of this.props.cards) {
       let cards = this.state.cards
       cards.push(card)
       this.setState({cards: cards})
     }
+  }
+
+  componentDidMount() {
+
   }
 
 

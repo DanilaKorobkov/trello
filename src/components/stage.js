@@ -10,8 +10,6 @@ class Stage extends Component {
     this.state = {
       cards: this.props.cards
     };
-
-
   }
 
   createCard = (stage) => {

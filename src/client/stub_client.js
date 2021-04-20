@@ -17,6 +17,10 @@ class StubClient {
         };
     }
 
+    changeCardsStage(card, newStage) {
+        return true
+    }
+
 }
 
 export default StubClient;

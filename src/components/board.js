@@ -1,34 +1,33 @@
 import React, {Component} from "react";
 import Stage from "./stage";
 import Button from '@material-ui/core/Button';
+import {v4 as uuid4} from "uuid";
 
 
 class Board extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      cards: this.props.content.cards,
-      stages: this.props.content.stages
-    }
+  addNewCard(stage) {
+    const newId = uuid4();
+    return {
+      "id": newId,
+      "stage": stage,
+      "title": "Make release v0.2.0"
+    };
   }
 
   dragCard = (cardId, newStage) => {
-    if (this.props.client.changeCardsStage(cardId, newStage)) {
-      let newCards = this.state.cards.map(function(card) {
+      let newCards = this.props.card.map(function(card) {
         if (card.id === cardId) {
           card.stage = newStage
         }
         return card;
       });
-      this.setState({cards: newCards})
-    }
+      this.props.move_card(newCards)
   }
 
   render() {
-    const stages = this.state.stages;
-    const cards = this.state.cards;
-
+    const stages = this.props.stage;
+    const cards = this.props.card;
     const groupedCards = groupCardsByStage(stages, cards);
 
     let filledStages = []
@@ -36,7 +35,9 @@ class Board extends Component {
       let component = <Stage
         title={stageName}
         cards={groupedCards.get(stageName)}
-        client={this.props.client}
+        addNewCard={this.addNewCard}
+        add_card={this.props.add_card}
+        cardsStore={cards}
       />
       filledStages.push(component)
     }

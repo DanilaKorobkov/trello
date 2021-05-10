@@ -3,27 +3,19 @@ import React, {Component} from "react";
 import Button from '@material-ui/core/Button';
 
 
+
 class Stage extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      cards: this.props.cards
-    };
-  }
-
   createCard = (stage) => {
-    let newCard = this.props.client.addNewCard(stage)
-    let newCards = this.state.cards
-    newCards.push(newCard)
-    this.setState({cards: newCards})
+    let newCard = this.props.addNewCard(stage)
+    this.props.add_card(newCard, this.props.cardsStore)
 }
 
     render() {
-
       let cards = []
+      let boardCards = this.props.cards
 
-      for (const card of this.state.cards) {
+      for (const card of boardCards) {
         let component = <Card id={card.id} title={card.title}/>
         cards.push(component)
       }

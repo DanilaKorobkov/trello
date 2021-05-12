@@ -1,13 +1,26 @@
 import React, {Component} from "react";
 import Stage from "./stage";
+import Button from '@material-ui/core/Button';
+import StubClient from "../client/stub_client";
 
 
 class Board extends Component {
 
-  render() {
-    const stages = this.props.content.stages;
-    const cards = this.props.content.cards;
+  client = new StubClient();
 
+  updateCard = (cardId, newStage) => {
+      let newCards = this.props.card.map(function(card) {
+        if (card.id === cardId) {
+          card.stage = newStage
+        }
+        return card;
+      });
+      this.props.move_card(newCards)
+  }
+
+  render() {
+    const stages = this.props.stage;
+    const cards = this.props.card;
     const groupedCards = groupCardsByStage(stages, cards);
 
     let filledStages = []
@@ -15,7 +28,9 @@ class Board extends Component {
       let component = <Stage
         title={stageName}
         cards={groupedCards.get(stageName)}
-        client={this.props.client}
+        createCard={this.client.addNewCard}
+        addCard={this.props.add_card}
+        cardsStore={cards}
       />
       filledStages.push(component)
     }
@@ -23,6 +38,11 @@ class Board extends Component {
     return (
       <div style={{display: 'flex', flexDirection: 'row'}}>
         {filledStages}
+        <Button
+          onClick={
+            () => this.updateCard(cards[1].id, stages[3])
+          }>Drag Card
+        </Button>
       </div>
     )
   }

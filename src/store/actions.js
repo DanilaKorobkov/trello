@@ -1,0 +1,12 @@
+const ADD_CARD = "ADD_CARD";
+
+const ADD_STAGE = "ADD_STAGE";
+
+const MOVE_CARD = "MOVE_CARD";
+
+export const CONSTANTS = {
+  ADD_CARD: "ADD_CARD",
+  MOVE_CARD: "MOVE_CARD",
+  ADD_STAGE: "ADD_STAGE"
+
+};

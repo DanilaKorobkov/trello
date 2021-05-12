@@ -1,21 +1,14 @@
 import React, {Component} from "react";
 import Stage from "./stage";
 import Button from '@material-ui/core/Button';
-import {v4 as uuid4} from "uuid";
+import StubClient from "../client/stub_client";
 
 
 class Board extends Component {
 
-  addNewCard(stage) {
-    const newId = uuid4();
-    return {
-      "id": newId,
-      "stage": stage,
-      "title": "Make release v0.2.0"
-    };
-  }
+  client = new StubClient();
 
-  dragCard = (cardId, newStage) => {
+  updateCard = (cardId, newStage) => {
       let newCards = this.props.card.map(function(card) {
         if (card.id === cardId) {
           card.stage = newStage
@@ -35,8 +28,8 @@ class Board extends Component {
       let component = <Stage
         title={stageName}
         cards={groupedCards.get(stageName)}
-        addNewCard={this.addNewCard}
-        add_card={this.props.add_card}
+        createCard={this.client.addNewCard}
+        addCard={this.props.add_card}
         cardsStore={cards}
       />
       filledStages.push(component)
@@ -47,7 +40,7 @@ class Board extends Component {
         {filledStages}
         <Button
           onClick={
-            () => this.dragCard(cards[1].id, stages[3])
+            () => this.updateCard(cards[1].id, stages[3])
           }>Drag Card
         </Button>
       </div>

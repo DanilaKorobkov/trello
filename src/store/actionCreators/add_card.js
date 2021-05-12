@@ -1,10 +1,10 @@
-import ADD_CARD from '../actions/add_card';
+import { CONSTANTS } from "../actions";
 
 function add_card(value, cardsStore) {
   let newCardsStore = [...cardsStore]
   newCardsStore.push(value)
   return {
-    type: ADD_CARD,
+    type: CONSTANTS.ADD_CARD,
     card: newCardsStore
   };
 }

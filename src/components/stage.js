@@ -7,8 +7,8 @@ import Button from '@material-ui/core/Button';
 class Stage extends Component {
 
   createCard = (stage) => {
-    let newCard = this.props.addNewCard(stage)
-    this.props.add_card(newCard, this.props.cardsStore)
+    let newCard = this.props.createCard(stage)
+    this.props.addCard(newCard, this.props.cardsStore)
 }
 
     render() {
